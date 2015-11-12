@@ -1,10 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.contrib.auth import logout
 from jugadores import models
+
 
 
 def home(request):
 	return render(request, 'general/index.html')
+
+def homeSocial(request):
+	return render(request, 'general/indexSocial.html')
+
+def logOut(request):
+	logout(request)
+	return render(request, 'general/indexSocial.html')
 
 def posicion(request, id):
 	objeto = models.Posicion.objects.get(id=id)

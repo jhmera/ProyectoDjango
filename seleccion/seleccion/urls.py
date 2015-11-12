@@ -18,10 +18,16 @@ from django.contrib import admin
 from jugadores import views
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('social.apps.django_app.urls', namespace='social')),
+    
+    #url(r'^admin/', include(admin.site.urls)),
+
+
+    url(r'^$', views.homeSocial),
+    url(r'^salir/$', views.logOut),
 
 	#GENERAL
-	url(r'^$', views.home),
+	#url(r'^$', views.home),
 
     #ESPECIE
     url(r'^posicion/(\d{1,10})/$', views.posicion),

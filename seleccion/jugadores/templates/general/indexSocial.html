@@ -1,0 +1,20 @@
+{% extends 'paginasGenerales/base.html' %}
+{% block title %}AUTENTICACION {% endblock %}
+{% block contenido %}
+<div>
+
+	<div class="titulo">
+		<p > AUTENTICATE CON TUS REDES SOCIALES</p>
+	</div>
+
+	{% if not user.is_authenticated %}
+		<a href="{% url 'social:begin' 'twitter'%}">Twitter LOGIN</a>
+		<a href="{%url 'social:begin' 'facebook'%}">Facebook LOGIN</a>
+	{% else %}
+		<h1>Bienvenido {{ user }}</h1>
+		<a href="/salir/"> logOut</a>
+
+	{% endif %}
+
+</div>
+{% endblock %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
     'jugadores',
 )
 
@@ -115,3 +116,18 @@ STATICFILES_DIRS = (
     os.path.join(os.path.dirname(BASE_DIR), 'seleccion/static').replace('\\','/'),
 )
 MEDIA_URL = '/media/'
+
+AUTHENTICATION_BACKENDS = (
+        'social.backends.facebook.FacebookAppOAuth2',
+        'social.backends.facebook.FacebookOAuth2',
+        'social.backends.twitter.TwitterOAuth',
+        'django.contrib.auth.backends.ModelBackend',
+    )
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_TWITTER_KEY = 'e9Th3F2tQnGiHMSc7W935Ldfu'
+SOCIAL_AUTH_TWITTER_SECRET = 'bUvg5iJvB3XXU9RsnjzOMQURWoyvuXO0Py3AVqadY5UytJOpce'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '986934658032537'
+SOCIAL_AUTH_FACEBOOK_SECRET = '6b510c0697ca6c7a90e50ef753ed4bc4'
