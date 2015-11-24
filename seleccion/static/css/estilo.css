@@ -1,10 +1,6 @@
-@font-face {
-    font-family: ubuntu;
-    src: url('../fonts/ubuntu.ttf');
-}
 
-*{
-	
+
+*{	
 	font-family: Helvetica;
 	font-size: 16px;
 	margin: 0;
@@ -60,10 +56,9 @@ input.cancelar{
 	background:linear-gradient(to bottom, #de3431 5%, #c9312c 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#de3431', endColorstr='#c9312c',GradientType=0);
 	background-color:#de3431;
-	-moz-border-radius:25px;
-	-webkit-border-radius:25px;
-	border-radius:25px;
-	border:1px solid #2e1813;
+	-moz-border-radius:25px !important;
+	-webkit-border-radius:25px !important;
+	border-radius:25px !important;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -99,10 +94,9 @@ input.eliminar{
 	background:linear-gradient(to bottom, #de3431 5%, #c9312c 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#de3431', endColorstr='#c9312c',GradientType=0);
 	background-color:#de3431;
-	-moz-border-radius:25px;
-	-webkit-border-radius:25px;
-	border-radius:25px;
-	border:1px solid #2e1813;
+	-moz-border-radius:25px !important;
+	-webkit-border-radius:25px !important;
+	border-radius:25px !important;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -139,10 +133,9 @@ input.guardar{
 	background:linear-gradient(to bottom, #337AB7 5%, #22629B 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#337AB7', endColorstr='#22629B',GradientType=0);
 	background-color:#337AB7;
-	-moz-border-radius:25px;
-	-webkit-border-radius:25px;
-	border-radius:25px;
-	border:1px solid #2e1813;
+	-moz-border-radius:25px !important;
+	-webkit-border-radius:25px !important;
+	border-radius:25px !important;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -224,8 +217,11 @@ p.sin-registro{
 	width: 90%;
 }
 
-.contenido form{
+.contenido form{   
 	max-width: 400px;
+    border: 4px solid;
+    padding: 1em;
+    border-radius: 10px;
 }
 
 .contenido form hr{
@@ -243,13 +239,12 @@ p.sin-registro{
 }
 
 .contenido form .form-group .label{
-	width: 30%;
+	width: 100%;
 	font-size: 1.125em;
 }
 
 .contenido form .form-group .input{
-	width: 65%;
-	float: right;
+	width: 100%;
 }
 
 .contenido form .form-group input.accion{
@@ -271,6 +266,13 @@ p.sin-registro{
 	border-collapse: collapse;
 	font-size: 1.25em;
 	max-width: 500px;
+}
+
+.contenido table  tr:nth-child(even){
+	background: #F3F781;
+}
+.contenido table  tr:nth-child(odd){
+	background: #FFBF00;
 }
 
 .contenido table tr td, .contenido table tr th{
@@ -320,14 +322,19 @@ p.sin-registro{
 	text-align: left;
 }
 
+.titulo {
+	max-width: 500px;
+	margin: 0 auto 0;
 
-
-.titulo p{
-	font-size: 1.5em;
-	font-weight: bold;
-	text-align: center;
 }
 
+.titulo p{
+	font-size: 2em;
+	font-weight: bold;
+	text-align: left;
+}
+
+/*colores tamaño iconos*/
 .titulo a{
 	color: black;
 	font-size: 1.25em;
@@ -472,4 +479,27 @@ p.sin-registro{
     height: 50px;
     width: 150px;
     float: left;
+}
+
+
+
+.hide {
+	display: none !important;
+	
+}
+
+div.dlg {
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+div.dlg form {
+	margin: 200px auto 0;
+	width: 90%;
+	max-width: 400px;
+	background: #FFF;
 }

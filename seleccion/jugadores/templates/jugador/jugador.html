@@ -4,10 +4,9 @@
 <div>
 	
 	<div class="titulo">
-		<p >Jugador</p>
-		<center>
-			<a href="/jugador/listado" title="Listado"><i class="icon-profile"></i></a>
-		</center>
+		<p >Jugador <a href="/jugador/listado" title="Listado"><i class="icon-profile"></i></a></p>
+			
+
 	</div>
 
 	<form action="" method="POST">{% csrf_token %}
@@ -38,10 +37,11 @@
 
 		<div class="form-group">
 			<center>
-				<input type="submit" value="Eliminar" class="accion eliminar" />
+				<input id="btnEliminar" type="button" value="Eliminar" class="accion eliminar" />
 			</center>
 		</div>
 
 	</form>
+
 </div>
 {% endblock %}

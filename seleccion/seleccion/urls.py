@@ -29,13 +29,11 @@ urlpatterns = [
 	#GENERAL
 	#url(r'^$', views.home),
 
-    #ESPECIE
     url(r'^posicion/(\d{1,10})/$', views.posicion),
     url(r'^posicion/editar/(\d{1,10})/$', views.posicion_editar),
     url(r'^posicion/listado$', views.posiciones),
     url(r'^posicion/nuevo$', views.posicion_nuevo),
-    
-    #ALIMENTO
+
     url(r'^jugador/(\d{1,10})/$', views.jugador),
     url(r'^jugador/editar/(\d{1,10})/$', views.jugador_editar),
     url(r'^jugador/listado$', views.jugadores),

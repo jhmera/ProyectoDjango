@@ -151,29 +151,35 @@ def jugador_nuevo(request):
 
 			objeto = models.Jugador
 			if request.POST.get('dorsal', ''):
-				dorsal = request.POST['dorsal'].upper()
-				if request.POST.get('nombre', ''):
-					nombre = request.POST['nombre'].upper()
-					if request.POST.get('apellido', ''):
-						apellido = request.POST['apellido'].upper()
-						if request.POST.get('posicion', ''):
-							posicion = posicion.objects.get(id=int(request.POST['posicion']))
-							objeto = objeto.objects.get(dorsal=dorsal, nombre=nombre, apellido=apellido, posicion=posicion)
-							mensaje = "Ya existe jugador con la información ingresada"
+				try:
+					dorsal = int(request.POST['dorsal'])
+					if request.POST.get('nombre', ''):
+						existe = models.Jugador.objects.filter(dorsal=dorsal)
+						if existe:
+							mensaje = "Existe jugador con la dorsal ingresada"
 						else:
-								mensaje = "Debe seleccionar la posicion del jugador"
+							nombre = request.POST['nombre'].upper()
+							if request.POST.get('apellido', ''):
+								apellido = request.POST['apellido'].upper()
+								if request.POST.get('posicion', ''):
+									posicion = posicion.objects.get(id=int(request.POST['posicion']))
+
+									objeto = models.Jugador.objects.create_object(dorsal, nombre, apellido, posicion)
+									objeto.save()
+									
+									return HttpResponseRedirect('/jugador/listado')
+								else:
+									mensaje = "Debe seleccionar la posicion del jugador"
+							else:
+								mensaje = "Debe ingresar el apellido del jugador"
 					else:
-						mensaje = "Debe ingresar el apellido del jugador"
-				else:
-					mensaje = "Debe ingresar el nombre del jugador"
+						mensaje = "Debe ingresar el nombre del jugador"
+				except ValueError:
+					mensaje = "La dorsal del jugador debe ser un número"
 			else:
 				mensaje = "Debe ingresar la dorsal del jugador"
 		except posicion.DoesNotExist:
-			mensaje = "La posicion seleccionada no existe"
-		except objeto.DoesNotExist:
-			objeto = models.Jugador.objects.create_object(dorsal, nombre, apellido, posicion)
-			objeto.save()
-			return HttpResponseRedirect('/jugador/listado')
+			mensaje = "La posicion seleccionada no existe"			
 
 	posiciones = models.Posicion.objects.all()
 	plantilla = 'jugador/nuevo.html'

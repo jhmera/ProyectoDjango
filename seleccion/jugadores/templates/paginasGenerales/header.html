@@ -19,8 +19,26 @@
             <hr>
       	<ul>
       		<li><a href="/">Inicio</a></li>
+                  {% if user.is_authenticated %}
       		<li><a href="/jugador/listado">Jugadores</a></li>
       		<li><a href="/posicion/listado">Posiciones</a></li>
+                  {% endif %}
+
+
+                  {% if not user.is_authenticated %}
+                  <li><a></a> Logueate </li>
+            
+                  <li><a href="{% url 'social:begin' 'twitter'%}"><i class="icon-twitter3"></i></a></li>
+                  <li><a href="{%url 'social:begin' 'facebook'%}"><i class="icon-facebook3"></i></a></li>
+      
+                  {% else %}
+                  <li><h1>Bienvenido {{ user }}</h1></li>
+                  <li><a href="/salir/"> <i class="icon-enter"></i></a></li>
+                  {% endif %}
+
+
+                  
+                  
       	</ul>
              <hr>
             <hr>

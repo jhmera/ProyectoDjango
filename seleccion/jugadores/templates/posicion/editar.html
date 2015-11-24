@@ -4,10 +4,7 @@
 <div>
 	
 	<div class="titulo">
-		<p >Posicion - Editar</p>
-		<center>
-			<a href="/posicion/listado" title="Listado"><i class="icon-profile"></i></a>
-		</center>
+		<p >Posicion - Editar <a href="#" id="btnEliminar" title="Eliminar"><i class="icon-user-minus"></i></a></p>			
 	</div>
 
 	<form action="" method="POST">{% csrf_token %}
@@ -19,7 +16,7 @@
 			<div class="input"><input type="text" class="upper" required="true" placeholder="Nombre" name="nombre" id="nombre" value="{{objeto.nombre}}"/></div>
 		</div>
 
-		<hr>
+		<br>
 
 		<div class="form-group">
 			<center>
@@ -29,5 +26,15 @@
 		</div>
 
 	</form>
+
+	<div id="dlgEliminar" class="dlg hide"  >
+            <form action="/posicion/{{objeto.id}}/" method="POST">{% csrf_token %}            	
+                   <p>¿Esta seguro que desea Eliminar? </p>
+                   <center>
+                        <input type="submit" value="Aceptar">
+                        <input type="button" value="Cancelar" id="cerrarDlg">
+                  </center>
+           </form>
+    </div>
 </div>
 {% endblock %}

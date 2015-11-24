@@ -4,10 +4,8 @@
 <div>
 
 	<div class="titulo">
-		<p >Posicion - Nueva</p>
-		<center>
-			<a href="/posicion/listado" title="Listado"><i class="icon-profile"></i></a>
-		</center>
+		<p >Posicion - Nueva <a href="/posicion/listado" title="Listado"><i class="icon-profile"></i></a></p>
+			
 	</div>
 
 	<form action="" method="POST">{% csrf_token %}
@@ -19,7 +17,7 @@
 			<div class="input"><input type="text" class="upper" required="true" placeholder="Nombre" name="nombre" id="nombre"/></div>
 		</div>
 
-		<hr>
+		<br>
 
 		<div class="form-group">
 			<center>
